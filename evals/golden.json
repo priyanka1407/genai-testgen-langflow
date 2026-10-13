@@ -1,0 +1,48 @@
+{
+  "_about": "Must-have scenarios a competent QA engineer would write for samples/docs. keywords are matched (case-insensitive, whole token) against title, steps, expected result, name=value fixed data, references and setup. outcome is optional.",
+  "requirements": [
+    {
+      "match_title": "Domestic fund transfer daily limit",
+      "must_have": [
+        {"id": "PAY-LIMIT-AT", "keywords": ["amount=10000"], "outcome": "success"},
+        {"id": "PAY-LIMIT-ABOVE", "keywords": ["amount=10000.01"], "outcome": "rejection"},
+        {"id": "PAY-LIMIT-CUMULATIVE", "keywords": ["prior_transfer"], "outcome": "rejection"},
+        {"id": "PAY-LIMIT-RESET", "keywords": ["resets"]}
+      ]
+    },
+    {
+      "match_title": "Transfer amount validation",
+      "must_have": [
+        {"id": "AMT-BELOW-MIN", "keywords": ["amount=0.99"], "outcome": "rejection"},
+        {"id": "AMT-AT-MIN", "keywords": ["amount=1"], "outcome": "success"},
+        {"id": "AMT-3-DECIMALS", "keywords": ["amount=10.222"], "outcome": "rejection"},
+        {"id": "AMT-SAME-ACCOUNT", "keywords": ["same"], "outcome": "rejection"}
+      ]
+    },
+    {
+      "match_title": "Account status checks",
+      "must_have": [
+        {"id": "STATUS-FROZEN", "keywords": ["frozen"], "outcome": "rejection"},
+        {"id": "STATUS-CLOSED", "keywords": ["closed"], "outcome": "rejection"},
+        {"id": "STATUS-DORMANT", "keywords": ["dormant"], "outcome": "rejection"},
+        {"id": "STATUS-ACTIVE-OK", "keywords": ["active"], "outcome": "success"}
+      ]
+    },
+    {
+      "match_title": "Login lockout",
+      "must_have": [
+        {"id": "LOCK-4-OK", "keywords": ["failed_attempts=4"], "outcome": "success"},
+        {"id": "LOCK-5-LOCKED", "keywords": ["failed_attempts=5"], "outcome": "rejection"},
+        {"id": "LOCK-RESET", "keywords": ["resets"]}
+      ]
+    },
+    {
+      "match_title": "OTP for high-value transfers",
+      "must_have": [
+        {"id": "OTP-AT-5000", "keywords": ["amount=5000"], "outcome": "success"},
+        {"id": "OTP-ABOVE-5000", "keywords": ["amount=5000.01"], "outcome": "other"},
+        {"id": "OTP-EXPIRED", "keywords": ["elapsed_seconds=300"], "outcome": "rejection"}
+      ]
+    }
+  ]
+}

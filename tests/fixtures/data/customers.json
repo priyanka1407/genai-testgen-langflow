@@ -1,0 +1,8 @@
+[
+  {"customer_id": "C-001", "segment": "RETAIL", "kyc_status": "VERIFIED", "daily_limit": 10000},
+  {"customer_id": "C-002", "segment": "RETAIL", "kyc_status": "VERIFIED", "daily_limit": 10000},
+  {"customer_id": "C-003", "segment": "RETAIL", "kyc_status": "PENDING", "daily_limit": 10000},
+  {"customer_id": "C-004", "segment": "RETAIL", "kyc_status": "VERIFIED", "daily_limit": 10000},
+  {"customer_id": "C-005", "segment": "PREMIER", "kyc_status": "VERIFIED", "daily_limit": 50000},
+  {"customer_id": "C-006", "segment": "PREMIER", "kyc_status": "VERIFIED", "daily_limit": 50000}
+]

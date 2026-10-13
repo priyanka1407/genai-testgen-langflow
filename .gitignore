@@ -1,0 +1,14 @@
+# Secrets - never commit (copy .env.example to .env locally)
+.env
+
+# Local environment and tool caches
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+*.log
+
+# Generated per run - not source code
+output/
+state/
+evals/baseline.json

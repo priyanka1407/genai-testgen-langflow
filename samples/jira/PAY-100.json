@@ -1,0 +1,77 @@
+{
+  "_about": "Local export of epic PAY-100 and its stories, in the same shape as JIRA REST /rest/api/2/issue/<key>?expand=names. Edit a story here to see only that story's test cases regenerate.",
+  "names": {
+    "summary": "Summary",
+    "description": "Description",
+    "priority": "Priority",
+    "customfield_10045": "Acceptance Criteria"
+  },
+  "epic": {
+    "key": "PAY-100",
+    "fields": {
+      "summary": "Domestic Payments v4.2",
+      "issuetype": {"name": "Epic"},
+      "priority": {"name": "High"},
+      "status": {"name": "In Progress"},
+      "description": "Improve domestic payment controls for release 4.2: daily limits, amount validation, account status checks and step-up authentication."
+    }
+  },
+  "stories": [
+    {
+      "key": "PAY-101",
+      "fields": {
+        "summary": "Domestic fund transfer daily limit",
+        "issuetype": {"name": "Story"},
+        "priority": {"name": "High"},
+        "status": {"name": "Ready for QA"},
+        "updated": "2026-10-10T09:15:00.000+0000",
+        "description": "As a retail customer I want a daily transfer limit so that my exposure to fraud is capped.\n\nh3. Acceptance Criteria\n* A retail customer can transfer up to 10,000 USD per calendar day across all domestic transfers\n* A transfer that would exceed the daily limit is rejected with error code PAY-LIMIT-001\n* The daily limit resets at 00:00 in the customer's home timezone\n\nh3. Notes\nLimit applies to the sum of all domestic transfers, not per transfer."
+      }
+    },
+    {
+      "key": "PAY-102",
+      "fields": {
+        "summary": "Transfer amount validation",
+        "issuetype": {"name": "Story"},
+        "priority": {"name": "High"},
+        "status": {"name": "Ready for QA"},
+        "updated": "2026-10-09T14:02:00.000+0000",
+        "description": "Validate the transfer amount and accounts before a transfer is submitted.\n\n*Acceptance Criteria:*\n# Minimum transfer amount is 1.00\n# Amount must have at most 2 decimal places\n# Source and destination account cannot be the same"
+      }
+    },
+    {
+      "key": "PAY-103",
+      "fields": {
+        "summary": "Account status checks",
+        "issuetype": {"name": "Story"},
+        "priority": {"name": "Medium"},
+        "status": {"name": "Ready for QA"},
+        "updated": "2026-10-08T11:40:00.000+0000",
+        "description": "Block debits from accounts that are not in good standing.\n\nh3. Acceptance Criteria\n* Given an account in status FROZEN or CLOSED\n* When the customer submits a transfer\n* Then the transfer is rejected\n* Given a DORMANT account\n* When any debit is attempted\n* Then it is rejected until the account is reactivated"
+      }
+    },
+    {
+      "key": "PAY-104",
+      "fields": {
+        "summary": "OTP for high-value transfers",
+        "issuetype": {"name": "Story"},
+        "priority": {"name": "Highest"},
+        "status": {"name": "Ready for QA"},
+        "updated": "2026-10-10T16:20:00.000+0000",
+        "description": "Step-up authentication for high-value transfers.",
+        "customfield_10045": "* Transfers above 5,000 require a one-time password\n* OTP expires after 300 seconds"
+      }
+    },
+    {
+      "key": "PAY-105",
+      "fields": {
+        "summary": "Show recent payees",
+        "issuetype": {"name": "Story"},
+        "priority": {"name": "Low"},
+        "status": {"name": "Ready for QA"},
+        "updated": "2026-10-07T10:05:00.000+0000",
+        "description": "As a customer I want to see my most recent payees when I start a transfer. The list shows the payee name and the masked account number. Selecting a payee pre-fills the destination account."
+      }
+    }
+  ]
+}
